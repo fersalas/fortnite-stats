@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import {
     Paper,
     Typography
-}                               from '@material-ui/core/';
+}                               from '@material-ui/core';
 
 class MainPanel extends PureComponent {
     render() {

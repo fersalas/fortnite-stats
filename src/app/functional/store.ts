@@ -1,10 +1,20 @@
-import { createStore, applyMiddleware, Store, combineReducers } from "redux";
-import { composeWithDevTools, EnhancerOptions } from "redux-devtools-extension";
+// Redux
+import {
+    applyMiddleware,
+    combineReducers,
+    createStore,
+    Store,
+ }                          from "redux";
+ // Saga
 import createSagaMiddleware from "redux-saga";
-import { StateType } from "typesafe-actions";
-import { all } from "redux-saga/effects";
-
-import appReducer from './appReducer';
+import { all }              from "redux-saga/effects";
+import { StateType }        from "typesafe-actions";
+import {
+    composeWithDevTools,
+    EnhancerOptions
+}                           from "redux-devtools-extension";
+// Reducers
+import appReducer           from './reducer';
 
 const rootReducer = combineReducers({
     app : appReducer,
