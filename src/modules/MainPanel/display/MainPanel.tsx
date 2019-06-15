@@ -1,19 +1,17 @@
-import React, { PureComponent } from 'react'
+import * as React from "react";
 import {
     Paper,
     Typography
 }                               from '@material-ui/core';
 
-class MainPanel extends PureComponent {
+class MainPanel extends React.PureComponent {
     render() {
         return (
-            <div>
-                <Paper style={{padding: '20px'}}>
-                    <Typography component="h2">
-                        {'Hello World!'}
-                    </Typography>                    
-                </Paper>
-            </div>
+            <Paper style={{padding: '20px'}}>
+                <Typography component="h2">
+                    {'Hello World!'}
+                </Typography>                    
+            </Paper>
         )
     }
 }

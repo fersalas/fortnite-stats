@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import * as React from "react";
 // @MUI Componens
 import {
     AppBar,
@@ -10,7 +10,7 @@ import {
 // @MUI Icons
 import MenuIcon                 from '@material-ui/icons/Menu';
 
-class MainNav extends PureComponent {
+class MainNav extends React.PureComponent {
     render() {
         return (
           <div style={{flexGrow: 1}}>
