@@ -1,12 +1,13 @@
-import React from 'react';
-
-import './App.css';
+import React     from 'react';
+import MainNav   from "../../modules/MainNav";
+import MainPanel from "../../modules/MainPanel";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        My Reads
+    <div>
+      <header>
+          <MainNav />
+          <MainPanel />
       </header>
     </div>
   );
