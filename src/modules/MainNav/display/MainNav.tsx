@@ -20,7 +20,7 @@ class MainNav extends React.PureComponent {
                   <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" style={{flexGrow: 1}}>
-                  {'My Reads'}
+                  {'Fortnite Stats'}
                 </Typography>
                 <Button color="inherit">{'Login'}</Button>
               </Toolbar>

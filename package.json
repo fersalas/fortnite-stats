@@ -1,8 +1,8 @@
 {
-  "name": "myreads",
+  "name": "fortnite-stats",
   "author": {
     "name": "Fernando Salas",
-    "email": "fersalaslopez@gmailcom"
+    "email": "fersalaslopez@gmail.com"
   },
   "version": "0.1.0",
   "private": true,
