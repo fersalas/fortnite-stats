@@ -1,7 +1,12 @@
 import axios from "axios";
 
 
-export const getUserUid = ( params: api.Parameters) => 
+export const getUser = ( params: api.Parameters) => 
     axios.get('/users/id', {
+        params,
+    });
+
+export const getUserStats = ( params: api.Parameters) => 
+    axios.get('/users/public/br_stats_v2', {
         params,
     });

@@ -3,29 +3,44 @@ import {
     actions
 }                  from './actions';
 import { getType } from 'typesafe-actions';
+import { GameStats, UserEntity } from './types';
 export interface State {
     error?: Error,
     isLoading: boolean,
-    list: any,
+    uid?: string,
+
+    username?: string,
+    stats?: GameStats,
+    users: UserEntity[]
 }
 
 const initialState: State = {
     isLoading: false,
-    list: [],
+    users: []
 }
 
 const reducer = (state: State = initialState, action: Action) => {
     switch (action.type) {
-        case getType(actions.loadUserUidStart):
-            return { ...state, isLoading: true};
+        // User ID
         case getType(actions.loadUserUidSuccess):
             return {
                 ...state,
                 error: void 0,
                 isLoading: false,
-                list: action.payload
+                username: action.payload.username,
+                uid: action.payload.uid,
             };
-        case getType(actions.loadUserUidError):
+        // User Stats
+        case getType(actions.loadUserStatsStart):
+            return {...state, isLoading: true}
+        case getType(actions.loadUserStatsSuccess):
+            return {
+                ...state,
+                error: void 0,
+                isLoading: false,
+                stats: action.payload
+            };
+        case getType(actions.loadUserStatsError):
             return {
                 ...state,
                 error: action.payload,

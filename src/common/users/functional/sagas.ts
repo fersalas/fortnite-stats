@@ -1,25 +1,37 @@
 import { put, call, takeLatest } from "redux-saga/effects";
 import { actions } from "./actions";
 import { getType, ActionType } from "typesafe-actions";
-//import * as selectors from "./selectors";
-import { getUserUid } from "./api";
+import { getGameModeStats } from './utils';
+import { 
+    getUser,
+    getUserStats,
+ } from "./api";
 
-export function* loadUserUid(action: ActionType<typeof actions.loadUserUid>) {
+
+export function* initloadUserStats(action: ActionType<typeof actions.loadUserStats>) {
     try {
-        yield put(actions.loadUserUidStart());
-
-        const params: api.Parameters = {
+        yield put(actions.loadUserStatsStart());
+        // TODO: Submit form to look for the username you want
+        const paramsUid: api.Parameters = {
             username: 'NotReykan',
         };
+        const uidResponse = yield call(getUser, paramsUid);
+        const user = uidResponse.data.data;
+        yield put(actions.loadUserUidSuccess(user));
 
-        const response = yield call(getUserUid, params);
-        console.log(response.data.data.entries)
-        yield put(actions.loadUserUidSuccess(response));
+        const paramsStats: api.Parameters = {
+            user_id: user.uid,
+        };
+        const statsResponse = yield call(getUserStats, paramsStats)
+
+        // Traverse response to get to the juicy data
+        const soloStats = getGameModeStats(statsResponse, 'defaultsolo');
+        yield put(actions.loadUserStatsSuccess(soloStats))
     } catch (e) {
-        yield put(actions.loadUserUidError(e));
+        yield put(actions.loadUserStatsError(e));
     }
 }
 
 export const sagas = [
-    takeLatest(getType(actions.loadUserUid), loadUserUid)
+    takeLatest(getType(actions.loadUserStats), initloadUserStats)
 ];

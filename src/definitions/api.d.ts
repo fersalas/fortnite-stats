@@ -1,8 +1,7 @@
 declare namespace api {
 
     type Parameters = {
-        key?: string;
-        id?: string | number,
+        user_id?: string,
         username?:  string,
     };
 

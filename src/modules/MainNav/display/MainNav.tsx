@@ -4,7 +4,6 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    Button,
     IconButton
 }                               from '@material-ui/core';
 // @MUI Icons
@@ -16,13 +15,13 @@ class MainNav extends React.PureComponent {
           <div style={{flexGrow: 1}}>
             <AppBar position="static">
               <Toolbar>
+                {/*TODO: Make a side nav with different stuff appear when you click this*/}
                 <IconButton edge="start" color="inherit" aria-label="Menu">
                   <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" style={{flexGrow: 1}}>
                   {'Fortnite Stats'}
                 </Typography>
-                <Button color="inherit">{'Login'}</Button>
               </Toolbar>
             </AppBar>
           </div>
