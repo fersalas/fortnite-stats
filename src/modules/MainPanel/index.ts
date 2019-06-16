@@ -1,3 +1,7 @@
 import MainPanel from "./display/MainPanel";
+import {actions} from './functional/actions';
 
-export default MainPanel;
+export {
+    actions,
+    MainPanel,
+}
