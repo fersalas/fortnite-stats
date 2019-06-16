@@ -1,5 +1,5 @@
 import { createStandardAction, ActionType } from "typesafe-actions";
-import { GameStats, UIDApiResponse } from "./types";
+import { UsersMap } from "./types";
 
 const LOAD_USER_STATS = "USERS:LOAD_USER_STATS";
 // Load user id
@@ -19,12 +19,12 @@ export const actions = {
     
     // LOAD USER UID Actions
     loadUserUidStart: createStandardAction(LOAD_USER_UID_START)(),
-    loadUserUidSuccess: createStandardAction(LOAD_USER_UID_SUCCESS)<UIDApiResponse>(),
+    loadUserUidSuccess: createStandardAction(LOAD_USER_UID_SUCCESS)<UsersMap>(),
     loadUserUidError: createStandardAction(LOAD_USER_UID_ERROR)<Error>(),
     // LOAD USER STATS Actions
-    loadUserStats: createStandardAction(LOAD_USER_STATS)(),
+    loadUserStats: createStandardAction(LOAD_USER_STATS)<string>(),
     loadUserStatsStart: createStandardAction(LOAD_USER_STATS_START)(),
-    loadUserStatsSuccess: createStandardAction(LOAD_USER_STATS_SUCCESS)<GameStats>(),
+    loadUserStatsSuccess: createStandardAction(LOAD_USER_STATS_SUCCESS)<UsersMap>(),
     loadUserStatsError: createStandardAction(LOAD_USER_STATS_ERROR)<Error>(),
 };
 

@@ -13,7 +13,7 @@ import {RootState, AllActions} from '../../../app';
 import * as users from "../../../common/users";
 
 interface MainPanelProps {
-    loadUserStats(): void,
+    loadUserStats(username: string): void,
     uid?: string,
 }
 
@@ -23,7 +23,7 @@ class MainPanel extends React.PureComponent<MainPanelProps> {
         const {
             loadUserStats
         } = this.props;
-        loadUserStats();
+        loadUserStats('NotReykan');
     }
     render() {
         return (
@@ -40,10 +40,10 @@ const mapStateToProps = (state: RootState) => {
     const {
         isLoading,
         uid,
-    } = state.user;
+    } = state.users;
   
     return {
-        error: state.user.error || void 0,
+        error: state.users.error || void 0,
         isLoading,
         uid,
     };
@@ -51,8 +51,8 @@ const mapStateToProps = (state: RootState) => {
   
   const mapDispatchToProps = (dispatch: Dispatch<AllActions>) => {
     return {
-        loadUserStats: () => {
-            dispatch(users.actions.loadUserStats());
+        loadUserStats: (username: string) => {
+            dispatch(users.actions.loadUserStats(username));
         },
     };
   };

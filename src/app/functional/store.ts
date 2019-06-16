@@ -27,7 +27,7 @@ import {Action as mainPanelActions} from '../../modules/MainPanel/functional/act
 
 const rootReducer = combineReducers({
     app   : appReducer,
-    user : usersReducer
+    users : usersReducer
 });
 
 export type RootState = StateType<typeof rootReducer>;

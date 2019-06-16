@@ -3,7 +3,7 @@ import {
     actions
 }                  from './actions';
 import { getType } from 'typesafe-actions';
-import { GameStats, UserEntity } from './types';
+import { GameStats, UsersMap } from './types';
 export interface State {
     error?: Error,
     isLoading: boolean,
@@ -11,12 +11,12 @@ export interface State {
 
     username?: string,
     stats?: GameStats,
-    users: UserEntity[]
+    users: UsersMap,
 }
 
 const initialState: State = {
     isLoading: false,
-    users: []
+    users: {},
 }
 
 const reducer = (state: State = initialState, action: Action) => {
@@ -27,8 +27,7 @@ const reducer = (state: State = initialState, action: Action) => {
                 ...state,
                 error: void 0,
                 isLoading: false,
-                username: action.payload.username,
-                uid: action.payload.uid,
+                users: action.payload,
             };
         // User Stats
         case getType(actions.loadUserStatsStart):
@@ -38,7 +37,7 @@ const reducer = (state: State = initialState, action: Action) => {
                 ...state,
                 error: void 0,
                 isLoading: false,
-                stats: action.payload
+                users: action.payload
             };
         case getType(actions.loadUserStatsError):
             return {

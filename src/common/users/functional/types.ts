@@ -40,8 +40,12 @@ export type GameStats = {
     score: number,
 }
 
+export type UsersMap = {
+    [username: string]: UserEntity,
+}
+
 export interface UserEntity {
     uid: string,
     username: string,
-    stats: GameModeStats,
+    stats?: GameModeStats,
 }
