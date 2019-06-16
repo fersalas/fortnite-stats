@@ -16,16 +16,16 @@ const initialState: State = {
 
 const reducer = (state: State = initialState, action: Action) => {
     switch (action.type) {
-        case getType(actions.loadBookListStart):
+        case getType(actions.loadUserUidStart):
             return { ...state, isLoading: true};
-        case getType(actions.loadBookListSuccess):
+        case getType(actions.loadUserUidSuccess):
             return {
                 ...state,
                 error: void 0,
                 isLoading: false,
                 list: action.payload
             };
-        case getType(actions.loadBookListError):
+        case getType(actions.loadUserUidError):
             return {
                 ...state,
                 error: action.payload,

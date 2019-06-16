@@ -10,19 +10,19 @@ import { Dispatch } from 'redux';
 import {RootState, AllActions} from '../../../app';
 
 // Common
-import * as books from "../../../common/books";
+import * as users from "../../../common/users";
 
 interface MainPanelProps {
-    loadBookList(): void,
+    loadUserUid(): void,
 }
 
 class MainPanel extends React.PureComponent<MainPanelProps> {
 
     componentDidMount() {
         const {
-            loadBookList
+            loadUserUid
         } = this.props;
-        loadBookList();
+        loadUserUid();
     }
     render() {
         return (
@@ -39,10 +39,10 @@ const mapStateToProps = (state: RootState) => {
     const {
         isLoading,
         list,
-    } = state.books;
+    } = state.users;
   
     return {
-        error: state.books.error || void 0,
+        error: state.users.error || void 0,
         isLoading,
         list,
     };
@@ -50,8 +50,8 @@ const mapStateToProps = (state: RootState) => {
   
   const mapDispatchToProps = (dispatch: Dispatch<AllActions>) => {
     return {
-        loadBookList: () => {
-            dispatch(books.actions.loadBookList());
+        loadUserUid: () => {
+            dispatch(users.actions.loadUserUid());
         },
     };
   };

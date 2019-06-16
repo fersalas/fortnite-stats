@@ -13,7 +13,7 @@ export const setupAxios = () => {
     axios.interceptors.request.use((config) => {
         return {
             ...config,
-            baseURL: 'https://fortnite-api.theapinetwork.com/prod09/',
+            baseURL: 'https://fortnite-api.theapinetwork.com/',
             params: {
                 ...config.params,
             },
