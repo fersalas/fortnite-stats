@@ -42,6 +42,7 @@ export function* initloadPlayerStats(action: ActionType<typeof actions.loadPlaye
             }))
         }
     } catch (e) {
+        console.log(e);
         yield put(actions.loadPlayerStatsError(e));
     }
 }
