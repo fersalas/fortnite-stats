@@ -1,7 +1,7 @@
-import MainPanel from "./display/MainPanel";
-import {actions} from './functional/actions';
+import StatCardsContainer     from "./display/StatCardsContainer";
+import { actions }            from './functional/actions';
 
 export {
     actions,
-    MainPanel,
+    StatCardsContainer,
 }

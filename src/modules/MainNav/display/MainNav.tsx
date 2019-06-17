@@ -4,21 +4,31 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    IconButton
 }                               from '@material-ui/core';
-// @MUI Icons
-import MenuIcon                 from '@material-ui/icons/Menu';
 
-class MainNav extends React.PureComponent {
+interface MainNavProps {
+  drawerWidth: number,
+}
+
+class MainNav extends React.PureComponent<MainNavProps> {
     render() {
+      const {
+        drawerWidth,
+      } = this.props;
+
+      const MainNavStyles = {
+        marginLeft: `${drawerWidth}px`,
+        width: `calc(100% - ${drawerWidth}px)`
+      }
+
         return (
           <div style={{flexGrow: 1}}>
-            <AppBar position="static">
+            <AppBar position="fixed" style={MainNavStyles}>
               <Toolbar>
                 {/*TODO: Make a side nav with different stuff appear when you click this*/}
-                <IconButton edge="start" color="inherit" aria-label="Menu">
+                {/* <IconButton edge="start" color="inherit" aria-label="Menu">
                   <MenuIcon />
-                </IconButton>
+                </IconButton> */}
                 <Typography variant="h6" style={{flexGrow: 1}}>
                   {'Fortnite Stats'}
                 </Typography>

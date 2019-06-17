@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-    Paper,
     Typography
 }                               from '@material-ui/core';
 
@@ -12,12 +11,12 @@ import {RootState, AllActions} from '../../../app';
 // Common
 import * as users from "../../../common/users";
 
-interface MainPanelProps {
+interface StatCardsContainerProps {
     loadUserStats(username: string): void,
     uid?: string,
 }
 
-class MainPanel extends React.PureComponent<MainPanelProps> {
+class StatCardsContainer extends React.PureComponent<StatCardsContainerProps> {
 
     componentDidMount() {
         const {
@@ -27,11 +26,11 @@ class MainPanel extends React.PureComponent<MainPanelProps> {
     }
     render() {
         return (
-            <Paper style={{padding: '20px'}}>
+            <section>
                 <Typography component="h2">
                     {'Hello World!'}
                 </Typography>                    
-            </Paper>
+            </section>
         )
     }
 }
@@ -60,4 +59,4 @@ const mapStateToProps = (state: RootState) => {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(MainPanel);
+  )(StatCardsContainer);

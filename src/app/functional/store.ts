@@ -22,7 +22,7 @@ import {
 // Action Types
 import {Action as appActions}    from './actions';
 import {Action as usersActions} from '../../common/users/functional/actions';
-import {Action as mainPanelActions} from '../../modules/MainPanel/functional/actions';
+import {Action as mainPanelActions} from '../../modules/mainPanel/functional/actions';
 
 
 const rootReducer = combineReducers({

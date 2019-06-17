@@ -1,6 +1,6 @@
 import { put, call, select, takeLatest } from "redux-saga/effects";
 import { getType, ActionType } from "typesafe-actions";
-import { usersEntitiesSelector } from './selectors';
+import { getUsersEntities } from './selectors';
 import { actions } from "./actions";
 import { getGameModeStats } from './utils';
 import { 
@@ -13,7 +13,7 @@ import { UsersMap, GameStats } from "./types";
 export function* initloadUserStats(action: ActionType<typeof actions.loadUserStats>) {
     try {
         const username = action.payload;
-        let users: UsersMap = yield select(usersEntitiesSelector);
+        let users: UsersMap = yield select(getUsersEntities);
         // Check if we don't already have user
         if(users[username] === undefined) {
             yield put(actions.loadUserStatsStart());
