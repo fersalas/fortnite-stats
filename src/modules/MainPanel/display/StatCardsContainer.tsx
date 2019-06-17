@@ -9,10 +9,10 @@ import { Dispatch } from 'redux';
 import {RootState, AllActions} from '../../../app';
 
 // Common
-import * as users from "../../../common/users";
+import * as players from "../../../common/players";
 
 interface StatCardsContainerProps {
-    loadUserStats(username: string): void,
+    loadPlayerStats(username: string): void,
     uid?: string,
 }
 
@@ -20,9 +20,9 @@ class StatCardsContainer extends React.PureComponent<StatCardsContainerProps> {
 
     componentDidMount() {
         const {
-            loadUserStats
+            loadPlayerStats
         } = this.props;
-        loadUserStats('NotReykan');
+        loadPlayerStats('NotReykan');
     }
     render() {
         return (
@@ -39,10 +39,10 @@ const mapStateToProps = (state: RootState) => {
     const {
         isLoading,
         uid,
-    } = state.users;
+    } = state.players;
   
     return {
-        error: state.users.error || void 0,
+        error: state.players.error || void 0,
         isLoading,
         uid,
     };
@@ -50,8 +50,8 @@ const mapStateToProps = (state: RootState) => {
   
   const mapDispatchToProps = (dispatch: Dispatch<AllActions>) => {
     return {
-        loadUserStats: (username: string) => {
-            dispatch(users.actions.loadUserStats(username));
+        loadPlayerStats: (username: string) => {
+            dispatch(players.actions.loadPlayerStats(username));
         },
     };
   };

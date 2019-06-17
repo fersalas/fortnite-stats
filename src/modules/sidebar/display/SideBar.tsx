@@ -15,11 +15,11 @@ import { Dispatch } from 'redux';
 import {RootState, AllActions} from '../../../app';
 
 // Common
-import * as users from "../../../common/users";
+import * as players from "../../../common/players";
 
 interface SideBarProps {
     drawerWidth: number,
-    users: users.types.UserEntity[],
+    players: players.types.PlayerEntity[],
 }
 
 class SideBar extends React.PureComponent<SideBarProps> {
@@ -41,9 +41,9 @@ class SideBar extends React.PureComponent<SideBarProps> {
                         <ListItem>
                             <TextField
                                 id='sampletextfield'
-                                label='Username'
+                                label='Playername'
                                 margin='normal'
-                                placeholder='EPIC Username'
+                                placeholder='EPIC Playername'
                             />
                         </ListItem>
                     </List>
@@ -63,10 +63,10 @@ class SideBar extends React.PureComponent<SideBarProps> {
 }
 
 const mapStateToProps = (state: RootState) => {
-    const activeUsers = users.selectors.getUsersArray(state)
-    console.log(activeUsers);
+    const activePlayers = players.selectors.getPlayersArray(state)
+    console.log(activePlayers);
     return {
-        users: activeUsers,
+        players: activePlayers,
     };
   };
   

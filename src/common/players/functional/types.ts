@@ -3,18 +3,18 @@ export type UIDApiResponse = {
     username: string,
 }
 
-export type UserControlTypes = 'gamepad' | 'keyboardmouse' | 'touch';
+export type PlayerControlTypes = 'gamepad' | 'keyboardmouse' | 'touch';
 
-export type UserControlStats = {
+export type PlayerControlStats = {
     gamepad: Array<GameModeStats>,
     keyboardmouse: Array<GameModeStats>,
     touch: Array<GameModeStats>,
 }
 
-export type UserStatsData = {
+export type PlayerStatsData = {
     accountId: string,
     username: string,
-    stats: UserControlStats,
+    stats: PlayerControlStats,
 }
 
 export type GameModeType = {
@@ -40,11 +40,11 @@ export type GameStats = {
     score: number,
 }
 
-export type UsersMap = {
-    [username: string]: UserEntity,
+export type PlayersMap = {
+    [username: string]: PlayerEntity,
 }
 
-export interface UserEntity {
+export interface PlayerEntity {
     uid: string,
     username: string,
     stats?: GameModeStats,

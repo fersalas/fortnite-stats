@@ -3,7 +3,7 @@ import {
     actions
 }                  from './actions';
 import { getType } from 'typesafe-actions';
-import { GameStats, UsersMap } from './types';
+import { GameStats, PlayersMap } from './types';
 export interface State {
     error?: Error,
     isLoading: boolean,
@@ -11,35 +11,35 @@ export interface State {
 
     username?: string,
     stats?: GameStats,
-    users: UsersMap,
+    players: PlayersMap,
 }
 
 const initialState: State = {
     isLoading: false,
-    users: {},
+    players: {},
 }
 
 const reducer = (state: State = initialState, action: Action) => {
     switch (action.type) {
-        // User ID
-        case getType(actions.loadUserUidSuccess):
+        // Player UID
+        case getType(actions.loadPlayerUidSuccess):
             return {
                 ...state,
                 error: void 0,
                 isLoading: false,
-                users: action.payload,
+                players: action.payload,
             };
-        // User Stats
-        case getType(actions.loadUserStatsStart):
+        // Player Stats
+        case getType(actions.loadPlayerStatsStart):
             return {...state, isLoading: true}
-        case getType(actions.loadUserStatsSuccess):
+        case getType(actions.loadPlayerStatsSuccess):
             return {
                 ...state,
                 error: void 0,
                 isLoading: false,
-                users: action.payload
+                players: action.payload
             };
-        case getType(actions.loadUserStatsError):
+        case getType(actions.loadPlayerStatsError):
             return {
                 ...state,
                 error: action.payload,

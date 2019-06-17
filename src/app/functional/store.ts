@@ -16,18 +16,18 @@ import {
 // Reducers and Sagas
 import appReducer                from './reducer';
 import {
-    reducer as usersReducer,
-    sagas as usersSagas,
-} from '../../common/users';
+    reducer as playersReducer,
+    sagas as playersSagas,
+} from '../../common/players';
 // Action Types
 import {Action as appActions}    from './actions';
-import {Action as usersActions} from '../../common/users/functional/actions';
+import {Action as playersActions} from '../../common/players/functional/actions';
 import {Action as mainPanelActions} from '../../modules/mainPanel/functional/actions';
 
 
 const rootReducer = combineReducers({
     app   : appReducer,
-    users : usersReducer
+    players : playersReducer
 });
 
 export type RootState = StateType<typeof rootReducer>;
@@ -38,14 +38,14 @@ let store: Store<RootState>;
 
 export type AllActions =
     | appActions
-    | usersActions
+    | playersActions
     | mainPanelActions
 ;
 
 
 function* sagas() {
     yield all([
-        ...usersSagas,
+        ...playersSagas,
     ]);
 }
 
