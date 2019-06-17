@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-    Fab,
+    Button,
     FormControl,
     ListItem,
     TextField,
@@ -30,10 +30,17 @@ class PlayerSearchForm extends React.PureComponent <PlayerSearchFormProps> {
                             margin='normal'
                             style={{marginBottom: '15px'}}
                         />
-                        <Fab aria-label='Search' color='default' variant='extended' size='small'>
+                        <Button
+                            aria-label='Search'
+                            color='default'
+                            fullWidth
+                            size='small'
+                            type='submit'
+                            variant='contained'
+                        >
                             <SearchIcon />
                             {'Search Player'}
-                        </Fab>
+                        </Button>
                     </FormControl>
                 </form>
             </ListItem>

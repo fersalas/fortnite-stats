@@ -51,7 +51,9 @@ class SideBar extends React.PureComponent<SideBarProps, SideBarState> {
         } = this.state;
 
         e.preventDefault();
-        addPlayer(playerSearch);
+        if(playerSearch) {
+            addPlayer(playerSearch);
+        }        
     }
 
     render() {
