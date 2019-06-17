@@ -9,21 +9,13 @@ import { Dispatch } from 'redux';
 import {RootState, AllActions} from '../../../app';
 
 // Common
-import * as players from "../../../common/players";
+//import * as players from "../../../common/players";
 
 interface StatCardsContainerProps {
-    loadPlayerStats(username: string): void,
-    uid?: string,
+    
 }
 
 class StatCardsContainer extends React.PureComponent<StatCardsContainerProps> {
-
-    componentDidMount() {
-        const {
-            loadPlayerStats
-        } = this.props;
-        loadPlayerStats('NotReykan');
-    }
     render() {
         return (
             <section>
@@ -49,11 +41,7 @@ const mapStateToProps = (state: RootState) => {
   };
   
   const mapDispatchToProps = (dispatch: Dispatch<AllActions>) => {
-    return {
-        loadPlayerStats: (username: string) => {
-            dispatch(players.actions.loadPlayerStats(username));
-        },
-    };
+    return {};
   };
   
   export default connect(
